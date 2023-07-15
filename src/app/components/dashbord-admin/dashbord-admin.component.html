@@ -1,0 +1,142 @@
+<section class="flexslider" data-section="welcome">
+    <ul class="slides">
+      <li style="background-image: url(img/hero_bg_1.jpg)" class="overlay" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="probootstrap-slider-text text-center probootstrap-animate probootstrap-heading">
+                <h1 class="primary-heading">Welcome</h1>
+                <h3 class="secondary-heading">Dashbord Admin</h3>
+                <h2>{{myDate | date : 'EEEE,MMMM d, y'}}</h2>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+  
+  
+    </ul>
+  </section>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Users</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Chefs</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Admins</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade  active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Confirm Password</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let s of users"> <!--s c'est un seul objet of users-->
+                  <td>{{s.lname}}</td>
+                  <td>{{s.email}}</td>
+                  <td>{{s.pwd}}</td>
+                  <td>{{s.cpwd}}</td>
+                  <td>{{s.phone}}</td>
+                  <td>{{s.fname}}</td>
+                  <td> 
+                    <button type="button" class="btn btn-info" (click)="displayUser(s.id)">display</button>
+                    <button type="button" class="btn btn-success">edit</button>
+                    <button type="button" class="btn btn-danger"(click)="deleteUser(s.id)">delete</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">speciality</th>
+                <th scope="col">experience</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col">Confirm Password</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let c of chefs">
+                <td>{{c.fname}}</td>
+                <td>{{c.lname}}</td>
+                <td>{{c.speciality}}</td>
+                <!-- ngStyle  -->
+                <!-- <td><span [ngStyle]="{color : compare(c.experience)[0]}">
+                  <span [ngStyle]='{fontSize: compare(c.experience)[1]}'>{{c.experience}}</span>
+                  </span></td> -->
+                  <!-- ngClass -->
+                  <td>
+                    <!-- if green class return low ","=>else return good -->
+                    <span [ngClass]="
+                    {'green-class' : compare(c.experience)[2]=='low', 
+                      'red-class':compare(c.experience)[2]=='good' }"> 
+                      {{c.experience}}
+                    </span>
+                    
+                  </td>
+                <td>{{c.email}}</td>
+                <td>{{c.pwd}}</td>
+                <td>{{c.cpwd}}</td>
+                <td>{{c.phone}}</td>
+                <td> 
+                  <button type="button" class="btn btn-info" (click)="displayChef(c.id)">display</button>
+                  <button type="button" class="btn btn-success"(click)="editChef(c.id)">edit</button>
+                  <button type="button" class="btn btn-danger">delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Confirm Password</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let u of admins">
+                    <td>{{u.fname}}</td>
+                    <td>{{u.lname}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.pwd}}</td>
+                    <td>{{u.cpwd}}</td>
+                    <td>{{u.phone}}</td>
+
+                    <td> 
+                      <button type="button" class="btn btn-info" (click)="displayAdmin(u.id)">display</button>
+                      <button type="button" class="btn btn-success" (click)="editAdmin(u.id)">edit</button>
+                      <button type="button" class="btn btn-danger">delete</button>
+                    </td>               
+                     </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>

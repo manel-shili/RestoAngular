@@ -1,0 +1,56 @@
+<section class="flexslider" data-section="welcome">
+    <ul class="slides">
+      <li style="background-image: url(img/hero_bg_1.jpg)" class="overlay" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="probootstrap-slider-text text-center probootstrap-animate probootstrap-heading">
+                <h1 class="primary-heading">Welcome</h1>
+                <h3 class="secondary-heading">Dashbord Chef</h3>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+  
+  
+    </ul>
+  </section>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Plats</a>
+    </li>
+   
+   
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade  active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Plat Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let p of plat">
+                  <td>{{p.platName}}</td>
+                  <td>{{p.description}}</td>
+                  <td>{{p.price}}</td>
+                  <td> 
+                    <button type="button" class="btn btn-info" >display</button>
+                    <button type="button" class="btn btn-success" (click)="editPlat(p.id)">edit</button>
+                    <button type="button" class="btn btn-danger">delete</button>
+                  </td> 
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+ 
+  </div>

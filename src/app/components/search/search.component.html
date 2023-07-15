@@ -1,0 +1,51 @@
+<section class="flexslider" data-section="welcome">
+    <ul class="slides">
+      <li style="background-image: url(img/hero_bg_1.jpg)" class="overlay" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="probootstrap-slider-text text-center probootstrap-animate probootstrap-heading">
+                <h1 class="primary-heading">Welcome</h1>
+                <h3 class="secondary-heading"> Plat</h3>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      
+   
+    </ul>
+  </section>
+<section class="probootstrap-section probootstrap-bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 probootstrap-animate">
+          <form class="probootstrap-form" #addPlatForm ="ngForm" (ngSubmit)="searchPlat()">
+            
+            <div class="row">
+              
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="email">Plat Name</label>
+                  <div class="form-field">
+                    <i class="icon icon-mail"></i>
+                    <input type="text" id="platName" class="form-control" placeholder="enter plat name" [(ngModel)]="plat.platName" [ngModelOptions]="{standalone: true}">
+                  </div>
+                </div>
+              </div>
+             
+             
+            </div>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-lg btn-primary btn-block">search</button>
+              </div>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
